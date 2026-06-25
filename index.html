@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe — Arcade Arena</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="game-shell">
+      <div class="game-bg" aria-hidden="true">
+        <div class="game-bg-gradient"></div>
+        <div class="game-bg-grid"></div>
+        <div class="game-bg-glow game-bg-glow-left"></div>
+        <div class="game-bg-glow game-bg-glow-right"></div>
+      </div>
+
+      <div class="game-content">
+        <header class="game-header">
+          <p class="game-eyebrow">Arcade Arena</p>
+          <h1 class="game-title">Tic Tac Toe</h1>
+          <p class="game-tagline">Choose your battle mode</p>
+        </header>
+
+        <div class="mode-grid">
+          <a href="/cpu.html" class="mode-card mode-card-cpu">
+            <span class="mode-icon">🤖</span>
+            <span class="mode-title">Vs CPU</span>
+            <span class="mode-desc">Solo arcade mode. Face an optimal AI opponent.</span>
+          </a>
+
+          <a href="/online.html" class="mode-card mode-card-online">
+            <span class="mode-icon">🌐</span>
+            <span class="mode-title">Online</span>
+            <span class="mode-desc">Create or join a room and play against a friend.</span>
+          </a>
+        </div>
+
+        <footer class="game-footer">
+          <p class="game-hint">Neon-lit classic. Works on Vercel — no server required.</p>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

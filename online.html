@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online — Tic Tac Toe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="game-shell">
+      <div class="game-bg" aria-hidden="true">
+        <div class="game-bg-gradient"></div>
+        <div class="game-bg-grid"></div>
+        <div class="game-bg-glow game-bg-glow-left"></div>
+        <div class="game-bg-glow game-bg-glow-right"></div>
+      </div>
+
+      <div class="game-content">
+        <header class="game-header">
+          <p class="game-eyebrow">Online Lobby</p>
+          <h1 class="game-title">Tic Tac Toe</h1>
+          <div id="subtitle">
+            <p class="game-tagline">Play with a friend in real time</p>
+          </div>
+        </header>
+
+        <div id="setup-panel">
+          <p class="status-banner" id="status" role="status" aria-live="polite">
+            Create a room and share the code.
+          </p>
+
+          <form class="lobby-panel" id="setup-form">
+            <label class="field-label" for="player-name">Your name</label>
+            <input
+              id="player-name"
+              class="field-input"
+              placeholder="Enter your name"
+              maxlength="20"
+              autocomplete="nickname"
+            />
+
+            <div hidden>
+              <label class="field-label" for="room-code-input">Room code</label>
+              <input
+                id="room-code-input"
+                class="field-input field-input-code"
+                placeholder="ABC123"
+                maxlength="6"
+                autocomplete="off"
+              />
+            </div>
+
+            <button type="submit" class="btn-primary btn-full" id="btn-submit">
+              Create Room
+            </button>
+            <button type="button" class="btn-ghost btn-full" id="btn-toggle-mode">
+              Have a code? Join a room
+            </button>
+          </form>
+        </div>
+
+        <section class="lobby-panel lobby-waiting" id="lobby-panel" hidden>
+          <p class="lobby-label">Share this room code</p>
+          <p class="room-code-display" id="room-code">------</p>
+          <p class="lobby-hint">
+            Send the code to your friend. The game starts when they join.
+          </p>
+          <button type="button" class="btn-ghost btn-full" id="btn-cancel">Cancel</button>
+        </section>
+
+        <div id="game-panel" hidden>
+          <div class="board" id="board" role="grid" aria-label="Tic tac toe board"></div>
+
+          <div class="game-actions">
+            <button type="button" class="btn-primary" id="btn-rematch">Rematch</button>
+            <button type="button" class="btn-ghost" id="btn-leave">Leave Room</button>
+          </div>
+        </div>
+
+        <p class="error-banner" id="error" hidden></p>
+
+        <div class="game-actions">
+          <a href="/" class="btn-ghost">Back to Menu</a>
+        </div>
+
+        <footer class="game-footer">
+          <p>
+            Host plays as <strong class="mark-x">X</strong>. Guest plays as
+            <strong class="mark-o">O</strong>.
+          </p>
+          <p class="game-hint">
+            Peer-to-peer via PeerJS — works on static hosting like Vercel.
+          </p>
+        </footer>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+    <script type="module" src="/js/online.js"></script>
+  </body>
+</html>

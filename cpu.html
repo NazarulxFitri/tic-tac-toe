@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vs CPU — Tic Tac Toe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="game-shell">
+      <div class="game-bg" aria-hidden="true">
+        <div class="game-bg-gradient"></div>
+        <div class="game-bg-grid"></div>
+        <div class="game-bg-glow game-bg-glow-left"></div>
+        <div class="game-bg-glow game-bg-glow-right"></div>
+      </div>
+
+      <div class="game-content">
+        <header class="game-header">
+          <p class="game-eyebrow">Arcade Arena</p>
+          <h1 class="game-title">Tic Tac Toe</h1>
+          <p class="game-subtitle">
+            <span class="player-tag player-tag-you">You</span>
+            <span class="vs-badge">VS</span>
+            <span class="player-tag player-tag-cpu">CPU</span>
+          </p>
+        </header>
+
+        <section class="score-panel" aria-label="Scoreboard">
+          <div class="score-card score-card-you">
+            <span class="score-label">You</span>
+            <span class="score-value" id="score-player">0</span>
+          </div>
+          <div class="score-card score-card-draw">
+            <span class="score-label">Draws</span>
+            <span class="score-value" id="score-draws">0</span>
+          </div>
+          <div class="score-card score-card-cpu">
+            <span class="score-label">CPU</span>
+            <span class="score-value" id="score-cpu">0</span>
+          </div>
+        </section>
+
+        <p class="status-banner" id="status" role="status" aria-live="polite"></p>
+
+        <div class="board" id="board" role="grid" aria-label="Tic tac toe board"></div>
+
+        <div class="game-actions">
+          <button type="button" class="btn-primary" id="btn-new">New Game</button>
+          <button type="button" class="btn-ghost" id="btn-reset-scores">Reset Scores</button>
+          <a href="/" class="btn-ghost">Back to Menu</a>
+        </div>
+
+        <footer class="game-footer">
+          <p>You play as <strong class="mark-x">X</strong>. CPU plays as <strong class="mark-o">O</strong>.</p>
+          <p class="game-hint">The CPU uses optimal strategy — can you force a draw?</p>
+        </footer>
+      </div>
+    </div>
+
+    <script type="module" src="/js/cpu.js"></script>
+  </body>
+</html>

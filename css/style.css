@@ -1,5 +1,3 @@
-@import "tailwindcss";
-
 :root {
   --bg-deep: #070b14;
   --bg-panel: rgba(12, 18, 36, 0.72);
@@ -14,12 +12,8 @@
   --cell-hover: rgba(0, 240, 255, 0.12);
   --glow-cyan: 0 0 24px rgba(0, 240, 255, 0.45);
   --glow-magenta: 0 0 24px rgba(255, 45, 149, 0.45);
-}
-
-@theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-display: var(--font-orbitron);
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Orbitron", sans-serif;
 }
 
 * {
@@ -35,11 +29,9 @@ body {
   margin: 0;
   background: var(--bg-deep);
   color: var(--text-primary);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans);
   overflow-x: hidden;
 }
-
-/* ── Game shell ───────────────────────────────────────────── */
 
 .game-shell {
   position: relative;
@@ -92,7 +84,6 @@ body {
   left: -120px;
   top: 20%;
   background: var(--neon-cyan);
-  animation-delay: 0s;
 }
 
 .game-bg-glow-right {
@@ -114,8 +105,6 @@ body {
   }
 }
 
-/* ── Content layout ─────────────────────────────────────── */
-
 .game-content {
   position: relative;
   z-index: 1;
@@ -132,7 +121,7 @@ body {
 
 .game-eyebrow {
   margin: 0 0 0.5rem;
-  font-family: var(--font-display), sans-serif;
+  font-family: var(--font-display);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.35em;
@@ -143,7 +132,7 @@ body {
 
 .game-title {
   margin: 0;
-  font-family: var(--font-display), sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(2.25rem, 8vw, 3.5rem);
   font-weight: 800;
   letter-spacing: 0.06em;
@@ -167,7 +156,7 @@ body {
 .player-tag {
   padding: 0.25rem 0.75rem;
   border-radius: 999px;
-  font-family: var(--font-display), sans-serif;
+  font-family: var(--font-display);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -189,14 +178,12 @@ body {
 }
 
 .vs-badge {
-  font-family: var(--font-display), sans-serif;
+  font-family: var(--font-display);
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.2em;
   color: var(--text-muted);
 }
-
-/* ── Score panel ────────────────────────────────────────── */
 
 .score-panel {
   display: grid;
@@ -217,17 +204,9 @@ body {
   backdrop-filter: blur(12px);
 }
 
-.score-card-you {
-  border-color: rgba(0, 240, 255, 0.3);
-}
-
-.score-card-draw {
-  border-color: rgba(255, 209, 102, 0.3);
-}
-
-.score-card-cpu {
-  border-color: rgba(255, 45, 149, 0.3);
-}
+.score-card-you { border-color: rgba(0, 240, 255, 0.3); }
+.score-card-draw { border-color: rgba(255, 209, 102, 0.3); }
+.score-card-cpu { border-color: rgba(255, 45, 149, 0.3); }
 
 .score-label {
   font-size: 0.7rem;
@@ -238,27 +217,15 @@ body {
 }
 
 .score-value {
-  font-family: var(--font-display), sans-serif;
+  font-family: var(--font-display);
   font-size: 1.75rem;
   font-weight: 700;
   line-height: 1;
 }
 
-.score-card-you .score-value {
-  color: var(--neon-cyan);
-  text-shadow: var(--glow-cyan);
-}
-
-.score-card-draw .score-value {
-  color: var(--neon-gold);
-}
-
-.score-card-cpu .score-value {
-  color: var(--neon-magenta);
-  text-shadow: var(--glow-magenta);
-}
-
-/* ── Status ───────────────────────────────────────────────── */
+.score-card-you .score-value { color: var(--neon-cyan); text-shadow: var(--glow-cyan); }
+.score-card-draw .score-value { color: var(--neon-gold); }
+.score-card-cpu .score-value { color: var(--neon-magenta); text-shadow: var(--glow-magenta); }
 
 .status-banner {
   margin: 0;
@@ -277,8 +244,6 @@ body {
   justify-content: center;
 }
 
-/* ── Board ────────────────────────────────────────────────── */
-
 .board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -290,18 +255,13 @@ body {
   border-radius: 20px;
   background: var(--bg-panel);
   border: 1px solid var(--cell-border);
-  box-shadow:
-    0 0 40px rgba(0, 240, 255, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 40px rgba(0, 240, 255, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(16px);
-  transition: box-shadow 0.3s ease;
   overflow: hidden;
 }
 
 .board-cpu-turn {
-  box-shadow:
-    0 0 40px rgba(255, 45, 149, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 40px rgba(255, 45, 149, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .board-cell {
@@ -317,11 +277,8 @@ body {
   background: rgba(0, 0, 0, 0.35);
   cursor: pointer;
   overflow: hidden;
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
   padding: 0;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .board-cell:not(:disabled):hover {
@@ -330,9 +287,7 @@ body {
   box-shadow: inset 0 0 20px rgba(0, 240, 255, 0.1);
 }
 
-.board-cell:disabled {
-  cursor: default;
-}
+.board-cell:disabled { cursor: default; }
 
 .board-cell-winning {
   animation: pulse-win 1s ease-in-out infinite;
@@ -342,16 +297,9 @@ body {
 }
 
 @keyframes pulse-win {
-  0%,
-  100% {
-    box-shadow: 0 0 16px rgba(255, 209, 102, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 32px rgba(255, 209, 102, 0.55);
-  }
+  0%, 100% { box-shadow: 0 0 16px rgba(255, 209, 102, 0.3); }
+  50% { box-shadow: 0 0 32px rgba(255, 209, 102, 0.55); }
 }
-
-/* ── Cell marks ───────────────────────────────────────────── */
 
 .cell-mark {
   position: absolute;
@@ -359,7 +307,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-display), sans-serif;
+  font-family: var(--font-display);
   font-size: 58cqmin;
   font-weight: 800;
   line-height: 1;
@@ -367,36 +315,16 @@ body {
   animation: mark-pop 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
-.cell-mark-x {
-  color: var(--neon-cyan);
-  text-shadow: var(--glow-cyan);
-}
-
-.cell-mark-o {
-  color: var(--neon-magenta);
-  text-shadow: var(--glow-magenta);
-}
+.cell-mark-x { color: var(--neon-cyan); text-shadow: var(--glow-cyan); }
+.cell-mark-o { color: var(--neon-magenta); text-shadow: var(--glow-magenta); }
 
 @keyframes mark-pop {
-  from {
-    opacity: 0;
-    transform: scale(0.4);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.4); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-.mark-x {
-  color: var(--neon-cyan);
-}
-
-.mark-o {
-  color: var(--neon-magenta);
-}
-
-/* ── Actions ──────────────────────────────────────────────── */
+.mark-x { color: var(--neon-cyan); }
+.mark-o { color: var(--neon-magenta); }
 
 .game-actions {
   display: flex;
@@ -408,7 +336,7 @@ body {
 
 .btn-primary,
 .btn-ghost {
-  font-family: var(--font-display), sans-serif;
+  font-family: var(--font-display);
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -416,10 +344,7 @@ body {
   padding: 0.85rem 1.75rem;
   border-radius: 10px;
   cursor: pointer;
-  transition:
-    transform 0.15s ease,
-    box-shadow 0.2s ease,
-    background 0.2s ease;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .btn-primary {
@@ -441,16 +366,6 @@ body {
   box-shadow: none;
 }
 
-.status-banner-warning {
-  color: #ffd166;
-  border-color: rgba(255, 209, 102, 0.35);
-  background: rgba(255, 209, 102, 0.08);
-}
-
-.connection-ok {
-  color: var(--neon-cyan);
-}
-
 .btn-ghost {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -463,7 +378,13 @@ body {
   transform: translateY(-2px);
 }
 
-/* ── Footer ───────────────────────────────────────────────── */
+a.btn-ghost,
+a.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
 
 .game-footer {
   text-align: center;
@@ -472,17 +393,13 @@ body {
   line-height: 1.6;
 }
 
-.game-footer p {
-  margin: 0;
-}
+.game-footer p { margin: 0; }
 
 .game-hint {
   margin-top: 0.35rem !important;
   font-size: 0.75rem;
   opacity: 0.8;
 }
-
-/* ── Home menu ────────────────────────────────────────────── */
 
 .game-tagline {
   margin: 0.75rem 0 0;
@@ -498,9 +415,7 @@ body {
 }
 
 @media (min-width: 520px) {
-  .mode-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .mode-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 .mode-card {
@@ -515,15 +430,10 @@ body {
   backdrop-filter: blur(12px);
   text-decoration: none;
   color: inherit;
-  transition:
-    transform 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.mode-card:hover {
-  transform: translateY(-3px);
-}
+.mode-card:hover { transform: translateY(-3px); }
 
 .mode-card-cpu:hover {
   border-color: rgba(0, 240, 255, 0.5);
@@ -535,13 +445,10 @@ body {
   box-shadow: 0 0 28px rgba(255, 45, 149, 0.2);
 }
 
-.mode-icon {
-  font-size: 1.75rem;
-  line-height: 1;
-}
+.mode-icon { font-size: 1.75rem; line-height: 1; }
 
 .mode-title {
-  font-family: var(--font-display), sans-serif;
+  font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -553,8 +460,6 @@ body {
   color: var(--text-muted);
   line-height: 1.5;
 }
-
-/* ── Lobby / forms ────────────────────────────────────────── */
 
 .lobby-panel {
   display: flex;
@@ -583,7 +488,7 @@ body {
 
 .room-code-display {
   margin: 0;
-  font-family: var(--font-display), sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(2rem, 10vw, 3rem);
   font-weight: 800;
   letter-spacing: 0.2em;
@@ -615,7 +520,6 @@ body {
   color: var(--text-primary);
   font-size: 1rem;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .field-input:focus {
@@ -624,23 +528,13 @@ body {
 }
 
 .field-input-code {
-  font-family: var(--font-display), sans-serif;
+  font-family: var(--font-display);
   letter-spacing: 0.25em;
   text-transform: uppercase;
   text-align: center;
 }
 
-.btn-full {
-  width: 100%;
-}
-
-a.btn-ghost,
-a.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-}
+.btn-full { width: 100%; }
 
 .error-banner {
   margin: 0;
@@ -654,8 +548,4 @@ a.btn-primary {
   border: 1px solid rgba(255, 100, 100, 0.35);
 }
 
-.game-footer code {
-  font-family: var(--font-mono), monospace;
-  font-size: 0.72rem;
-  color: var(--neon-cyan);
-}
+[hidden] { display: none !important; }
